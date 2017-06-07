@@ -1,0 +1,12 @@
+<h2> Enter any retina image # (any number between 1 to 9 is good) to view </h2>
+
+
+<%= form_for(@retina) do |f| %>
+  <p>
+    <%= f.label :hba1c, "Retina No:" %><br/>
+    <%= f.text_field :hba1c %>
+  <p>
+    <%= f.submit 'Fetch Retina' %>
+  </p>
+  </p>
+<% end %>
