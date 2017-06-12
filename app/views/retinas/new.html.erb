@@ -1,12 +1,47 @@
-<h2> Enter any retina image # (any number between 1 to 9 is good) to view </h2>
+<h2> Clinical Data Form for the Patient, Enter/Select Values </h2>
 
 
 <%= form_for(@retina) do |f| %>
   <p>
-    <%= f.label :hba1c, "Retina No:" %><br/>
+    <%= f.label :hba1c, "hba1c" %><br/>
     <%= f.text_field :hba1c %>
+  </p>
   <p>
+    <%= f.label :lipid_profile %><br/>
+    <%= f.text_field :lipid_profile %>
+  </p>
+  <p>
+    <%= f.label :kidney_renal %><br/>
+    <%= f.select :kidney_renal, options_for_select([['Yes', 1], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :kidney_creatinine %><br/>
+    <%= f.text_field :kidney_creatinine, size: 10 %>
+  </p>
+  <p>
+    <%= f.label :kidney_micro_album %><br/>
+    <%= f.select :kidney_micro_album, options_for_select([['Yes', 1], ['No', 0]]) %>
+  </p>
+    <p>
+    <%= f.label :smoking %><br/>
+    <%= f.select :smoking, options_for_select([['Yes', 1], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :smoking_related_lung_disease %><br/>
+    <%= f.select :smoking_related_lung_disease, options_for_select([['Yes', 2], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :diabetic_duration %><br/>
+    <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 2], ['11-15 Yrs', 1.5], ['11-15 Yrs', 1], ['>20 Yrs', 0.5]]) %>
+  </p>
+  <p>
+    <%= f.label :cad_stroke %><br/>
+    <%= f.select :cad_stroke, options_for_select([['Yes', 2], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :good_follow_up %><br/>
+    <%= f.select :good_follow_up, options_for_select([['Yes', 0], ['No', 5]]) %>
+  </p>
+  
     <%= f.submit 'Fetch Retina' %>
-  </p>
-  </p>
 <% end %>

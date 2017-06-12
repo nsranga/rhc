@@ -2,4 +2,27 @@ Retinas image is: <a href="<%= image_path("100retinas/#{@retina.hba1c}.jpg") %>"
 
 <br><br><br>
 
+Retina clinical parameters are:
+<br><br>
+HbA1c : <%= @retina.hba1c %>
+<br>
+Lipid Profile : <%= @retina.lipid_profile %>
+<br>
+Kidney Renal Involvement : <%= @retina.kidney_renal %>
+<br>
+Kidney Micro Albumineuria : <%= @retina.kidney_micro_album %>
+<br>
+Kidney Creatinine : <%= @retina.kidney_creatinine %>
+<br>
+Smoking : <%= @retina.smoking %>
+<br>
+Smoking related lung disease : <%= @retina.smoking_related_lung_disease %>
+<br>
+Diabetic for : <%= @retina.diabetic_duration %> Years
+<br>
+CAD/Stroke: <%= @retina.cad_stroke %>
+<br>
+Good follow-up: <%= @retina.good_follow_up %>
+
+<br><br><br>
 <a href="<%= new_retina_path %>">Enter a different retina no. </a>

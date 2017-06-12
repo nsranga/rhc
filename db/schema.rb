@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605051441) do
+ActiveRecord::Schema.define(version: 20170611073317) do
 
   create_table "retinas", force: :cascade do |t|
     t.integer  "hba1c"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "lipid_profile"
+    t.integer  "kidney_renal"
+    t.integer  "kidney_micro_album"
+    t.integer  "kidney_creatinine"
+    t.integer  "smoking"
+    t.integer  "smoking_related_lung_disease"
+    t.integer  "diabetic_duration"
+    t.integer  "cad_stroke"
+    t.integer  "good_follow_up"
   end
 
 end
