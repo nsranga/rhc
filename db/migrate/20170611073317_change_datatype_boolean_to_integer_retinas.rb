@@ -1,6 +1,6 @@
 class ChangeDatatypeBooleanToIntegerRetinas < ActiveRecord::Migration[5.0]
   def change
-  	change_column :retinas, :kidney_renal, 'integer USING CAST (kidney_renal::integer)'
+  	change_column :retinas, :kidney_renal, 'integer USING CAST (kidney_renal AS integer)'
   	change_column :retinas, :kidney_micro_album, :integer
   	change_column :retinas, :smoking, :integer
   	change_column :retinas, :smoking_related_lung_disease, :integer
