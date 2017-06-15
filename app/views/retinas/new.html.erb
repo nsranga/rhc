@@ -2,6 +2,7 @@
 
 
 <%= form_for(@retina) do |f| %>
+ <%= @retina.errors.full_messages.to_sentence %>
   <p>
     <%= f.label :hba1c, "hba1c" %><br/>
     <%= f.text_field :hba1c %>
@@ -43,5 +44,5 @@
     <%= f.select :good_follow_up, options_for_select([['Yes', 0], ['No', 5]]) %>
   </p>
   
-    <%= f.submit 'Fetch Retina' %>
+    <%= f.submit 'Score ?' %>
 <% end %>

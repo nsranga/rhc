@@ -1,7 +1,14 @@
-Retinas image is: <a href="<%= image_path("100retinas/#{@retina.hba1c}.jpg") %>"> click here </a>
+
 
 <br><br><br>
 
+The Score for the below clinical data is: <%= @retina.calculate_score %>
+
+<br><br><br>
+<a href="<%= new_retina_path %>">Enter new data set </a>
+
+
+<br><br><br>
 Retina clinical parameters are:
 <br><br>
 HbA1c : <%= @retina.hba1c %>
@@ -18,11 +25,9 @@ Smoking : <%= @retina.smoking %>
 <br>
 Smoking related lung disease : <%= @retina.smoking_related_lung_disease %>
 <br>
-Diabetic for : <%= @retina.diabetic_duration %> Years
+Diabetic Score : <%= @retina.diabetic_duration %> 
 <br>
 CAD/Stroke: <%= @retina.cad_stroke %>
 <br>
 Good follow-up: <%= @retina.good_follow_up %>
 
-<br><br><br>
-<a href="<%= new_retina_path %>">Enter a different retina no. </a>

@@ -20,7 +20,6 @@ class RetinasController < ApplicationController
 	   	                                              :cad_stroke, 
 	   	                                              :good_follow_up)
        @retina = Retina.create(retina_params)
-       @retina.calculate_score()
 
        if @retina.save!
          redirect_to @retina
