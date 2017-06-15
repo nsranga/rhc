@@ -2,9 +2,21 @@
 
 <br><br><br>
 
-The Score for the below clinical data is: <%= @retina.calculate_score %>
+The Score for the below clinical data is: <%= @score = @retina.calculate_score %>
 
 <br><br><br>
+
+<% @year_count=2  %> 
+
+<% while (@score*@year_count) < 100  %> 
+
+  To view your Retina condition after <%= (@year_count-1) %> year:
+  <br>
+  <a href="<%= image_path("100retinas/#{(@score.to_i)*@year_count}o.jpg") %>">Click here</a> 
+  <br>
+  <% @year_count = @year_count + 1 %>
+<% end %> 
+
 <a href="<%= new_retina_path %>">Enter new data set </a>
 
 
