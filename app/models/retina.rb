@@ -15,7 +15,7 @@ class Retina < ApplicationRecord
 
       # the score based on all of the params 
 	  @score = (self.hba1c - 7) + 
-	           (self.lipid_profile-200)/50 * 0.5 + 
+	           (self.lipid_profile-100)/50 * 0.5 + 
 	           (self.kidney_renal) +
 	           (self.kidney_micro_album) +
 	            @kidney_creatinine_score +
