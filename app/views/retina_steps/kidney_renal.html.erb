@@ -1,0 +1,33 @@
+  <p>
+    <%= f.label :kidney_renal %><br/>
+    <%= f.select :kidney_renal, options_for_select([['Yes', 1], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :kidney_creatinine %><br/>
+    <%= f.text_field :kidney_creatinine, size: 10 %>
+  </p>
+  <p>
+    <%= f.label :kidney_micro_album %><br/>
+    <%= f.select :kidney_micro_album, options_for_select([['Yes', 1], ['No', 0]]) %>
+  </p>
+    <p>
+    <%= f.label :smoking %><br/>
+    <%= f.select :smoking, options_for_select([['Yes', 1], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :smoking_related_lung_disease %><br/>
+    <%= f.select :smoking_related_lung_disease, options_for_select([['Yes', 2], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :diabetic_duration %><br/>
+    <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 2], ['11-15 Yrs', 1.5], ['11-15 Yrs', 1], ['>20 Yrs', 0.5]]) %>
+  </p>
+  <p>
+    <%= f.label :cad_stroke %><br/>
+    <%= f.select :cad_stroke, options_for_select([['Yes', 2], ['No', 0]]) %>
+  </p>
+  <p>
+    <%= f.label :good_follow_up %><br/>
+    <%= f.select :good_follow_up, options_for_select([['Yes', 0], ['No', 5]]) %>
+  </p>
+ 

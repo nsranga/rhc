@@ -1,6 +1,10 @@
 class Retina < ApplicationRecord
-	validates :hba1c, :lipid_profile, :kidney_creatinine, presence: true
+	# validates :hba1c, :lipid_profile, :kidney_creatinine, presence: true
 	#validates_inclusion_of :hba1c, :in => 1..10
+
+	def current_retina
+		Retina.find(session[:retina_id])
+	end 
 
 	def calculate_score()
 	  @score = 0

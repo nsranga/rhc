@@ -1,0 +1,9 @@
+<h2>Tell us a little more about yourself</h2>
+
+<%= form_for @retina, url: wizard_path do |f| %> 
+  
+ <p>
+    <%= f.label :lipid_profile %> <br>
+    <%= f.text_field :lipid_profile %>
+  </p>
+<% end %>

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Use wicked to create multi-step form to capture clinical parmeters with next option
+gem 'wicked'
+
 gem "humanize"
 gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
