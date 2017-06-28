@@ -1,15 +1,11 @@
 <a href="<%= root_path%>"> Home </a> <br> 
-<br>
-<h2> Clinical Data Form for the Patient, Enter/Select Values </h2>
-
-
 <%= form_for(@retina) do |f| %>
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
  <%= @retina.errors.full_messages.to_sentence %>
   <p>
-    <%= f.label :hba1c, "hba1c" %><br/>
+    <%= f.label :hba1c, "HbA1c" %><br/>
     <%= f.text_field :hba1c %>
   </p>
   
-    <%= f.submit 'Score ?' %> 
+    <%= f.submit 'Continue' %> 
 <% end %>

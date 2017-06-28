@@ -8,4 +8,14 @@ class RetinaStepsController < ApplicationController
   	puts "current retina id is: #{@current_retina_id}"
     render_wizard 
   end
+
+
+  def update
+  	@current_retina_id = current_retina_id
+  	@retina = Retina.find(@current_retina_id)
+  	retina_params = params.require(:retina).permit(:lipid_profile)
+  	@retina.attributes = retina_params
+    render_wizard @retina
+  end
 end
+

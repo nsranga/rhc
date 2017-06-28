@@ -2,8 +2,10 @@
 
 <%= form_for @retina, url: wizard_path do |f| %> 
   
- <p>
-    <%= f.label :lipid_profile %> <br>
+<p>
+    <%= f.label :lipid_profile, "Serum Cholesterol" %> <br>
     <%= f.text_field :lipid_profile %>
-  </p>
+</p>
+
+<%= f.submit 'Continue' %>
 <% end %>
