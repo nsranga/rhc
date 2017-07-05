@@ -7,6 +7,11 @@ class RetinasController < ApplicationController
 	end  
 	def show
 		@retina = Retina.find(params[:id])
+		@no_of_years = params[:no_of_years]
+		@retina_base_score = params[:retina_base_score]
+		puts "no_of_years=" 
+		puts "params", params[:id]
+		puts @no_of_years
 	end 
 	def create
 	   # retina_params = params.require(:retina).permit(:hba1c, 

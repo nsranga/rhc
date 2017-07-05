@@ -8,34 +8,12 @@
   <p>
     <%#= f.label :kidney_creatinine %><br/>
     <%#= f.hidden_field :kidney_creatinine, size: 10 %>
-    <%= f.hidden_field :kidney_creatinine, value: 0 %>
+    <%= f.hidden_field :kidney_creatinine, value: 1 %>
   </p>
   <p>
     <%#= f.label :kidney_micro_album %><br/>
     <%# f.hidden_field :kidney_micro_album, options_for_select([['Yes', 1], ['No', 0]]) %>
-    <% f.hidden_field :kidney_micro_album, value: 0 %>
+    <%= f.hidden_field :kidney_micro_album, value: 1 %>
   </p>
-    <p>
-    <%= f.label :smoking, "Smoking" %><br/>
-    <%= f.select :smoking, options_for_select([['No', 0], ['Yes', 1], ['Related lung disease', 2]]) %>
-  </p>
-  <p>
-    <%#= f.label :smoking_related_lung_disease %><br/>
-    <%# f.hidden_field :smoking_related_lung_disease, options_for_select([['Yes', 2], ['No', 0]]) %>
-    <% f.hidden_field :smoking_related_lung_disease, value: 0 %>
-
-  </p>
-  <p>
-    <%= f.label :diabetic_duration, "Duration" %><br/>
-    <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 2], ['11-15 Yrs', 1.5], ['11-15 Yrs', 1], ['>20 Yrs', 0.5]]) %>
-  </p>
-  <p>
-    <%= f.label :cad_stroke, "History of Coronoary Artery Disease/ Stroke" %><br/>
-    <%= f.select :cad_stroke, options_for_select([['No', 0], ['Yes', 2]]) %>
-  </p>
-  <p>
-    <%= f.label :good_follow_up, "Good follow-up, once in three months" %><br/>
-    <%= f.select :good_follow_up, options_for_select([['No', 5], ['Yes', 0]]) %>
-  </p>
- <%= f.submit 'Continue' %>
+ <%= f.submit 'Next' %>
 <% end %>

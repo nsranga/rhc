@@ -1,0 +1,10 @@
+<h2>Tell us about your follow-up habits</h2>
+
+<%= form_for @retina, url: wizard_path do |f| %> 
+  <p>
+    <%= f.label :good_follow_up, "Good follow-up, once in three months" %><br/>
+    <%= f.select :good_follow_up, options_for_select([['No', 5], ['Yes', 0]]) %>
+  </p>
+
+ <%= f.submit 'Next' %>
+<% end %>

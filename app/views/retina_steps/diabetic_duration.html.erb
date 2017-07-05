@@ -1,0 +1,9 @@
+<h2>Tell us about diabetic duration </h2>
+
+<%= form_for @retina, url: wizard_path do |f| %> 
+  <p>
+    <%= f.label :diabetic_duration, "Duration" %><br/>
+    <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 2], ['11-15 Yrs', 1.5], ['11-15 Yrs', 1], ['>20 Yrs', 0.5]]) %>
+  </p>
+ <%= f.submit 'Next' %>
+<% end %>

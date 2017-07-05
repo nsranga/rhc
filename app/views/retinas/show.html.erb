@@ -14,27 +14,10 @@ table, th, td {
 
 The Score for the below clinical data is: <%= @score = @retina.calculate_score %>
 
-<% @year_count=2  %> 
+<% @year_count=session[:no_of_years].to_i %> 
 
-<br><br>
-<table border="1">  
-<caption>Retina Health Over the Years</caption>                       
-  <tr>                          
-    <th>...Year from now</th>
-    <th>Your Retina Looks like...</th>
-  </tr>
-
-<%# #start loop %>
-<% while (@score*@year_count) < 100  %>      
-  <tr>
-    <td><%= (@year_count-1).humanize %></td>  
-    <td><img src="<%= image_path("100retinas/#{(@score.to_i)*@year_count}o.jpg") %>" style="float: left; width: 25%; margin-right: 15%; margin-bottom: 0.5em;"></td>  
-  </tr>
-  <% @year_count = @year_count + 1 %>
-
-<%# end loop %>
-<% end %>                        
-</table>
+<br>
+<img src="<%= image_path("100retinas/" + (@score * @year_count).to_i.to_s + "o.jpg") %>"height="650" width="650"/> 
 
 <br>
 Clinical parameters are:
