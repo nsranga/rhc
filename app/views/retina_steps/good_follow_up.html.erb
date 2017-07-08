@@ -1,4 +1,4 @@
-<h2>Tell us about your follow-up habits</h2>
+
 
 <%= form_for @retina, url: wizard_path do |f| %> 
   <p>
@@ -7,4 +7,5 @@
   </p>
 
  <%= f.submit 'Next' %>
+ <%=  link_to 'Back', previous_wizard_path %>
 <% end %>

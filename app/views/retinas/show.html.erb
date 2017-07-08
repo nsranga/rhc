@@ -1,36 +1,32 @@
 <br>
 
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    th {
-      text-align: center;
-    }
-}
-</style>
+<script>
+$("#pop").on("click", function() {
+   $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
+   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+});
+</script>
 
 <a href="<%= root_path%>"> Home </a> <br> 
 
 The Score for the below clinical data is: <%= @score = @retina.calculate_score %>
 
 <% @year_count=session[:no_of_years].to_i %> 
-
-<br>
-<img src="<%= image_path("100retinas/" + (@score * @year_count).to_i.to_s + "o.jpg") %>"height="650" width="650"/> 
-
-<br>
-Clinical parameters are:
 <br><br>
+
+
+
+<a href="#imagemodal" data-toggle="modal"> Click to see Retina Image </a>
+
+<br><br>
+Clinical parameters are:<br>
+<p>------------------------</p>
+<br>
 HbA1c : <%= @retina.hba1c %>
 <br>
-Lipid Profile : <%= @retina.lipid_profile %>
+Serum Cholesterol: <%= @retina.lipid_profile %>
 <br>
 Kidney Renal Involvement : <%= @retina.kidney_renal %>
-<br>
-Kidney Micro Albumineuria : <%= @retina.kidney_micro_album %>
-<br>
-Kidney Creatinine : <%= @retina.kidney_creatinine %>
 <br>
 Smoking : <%= @retina.smoking %>
 <br>
@@ -43,3 +39,22 @@ CAD/Stroke: <%= @retina.cad_stroke %>
 Good follow-up: <%= @retina.good_follow_up %>
 <br><br>
 <a href="<%= new_retina_path %>">Click to enter new clinical data set </a>
+
+
+<!-- Creates the bootstrap modal where the image will appear -->
+<div class="modal fade" id="imagemodal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4> Retina Image </h4>
+      </div>
+      <div class="modal-body">
+        <img id="imageresource" src="<%= image_path("100retinas/" + (session[:retina_base_score].to_i + @score * @year_count).to_i.to_s + "o.jpg") %>" alt="--No Retina Image to Display--" width="550" height="450">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-target="#imagemodal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

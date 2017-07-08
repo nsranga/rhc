@@ -1,5 +1,17 @@
 source 'https://rubygems.org'
 
+
+
+
+# bootsrap for responsive UI 
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+# for popovers and tooltips
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
+
 # Use wicked to create multi-step form to capture clinical parmeters with next option
 gem 'wicked'
 

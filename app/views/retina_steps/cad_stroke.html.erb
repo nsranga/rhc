@@ -1,4 +1,4 @@
-<h2>Tell us more about yourself</h2>
+
 
 <%= form_for @retina, url: wizard_path do |f| %> 
   <p>
@@ -6,4 +6,5 @@
     <%= f.select :cad_stroke, options_for_select([['No', 0], ['Yes', 2]]) %>
   </p>
  <%= f.submit 'Next' %>
+ <%=  link_to 'Back', previous_wizard_path %>
 <% end %>
