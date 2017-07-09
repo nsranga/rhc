@@ -7,11 +7,6 @@ class RetinasController < ApplicationController
 	end  
 	def show
 		@retina = Retina.find(params[:id])
-		@no_of_years = params[:no_of_years]
-		@retina_base_score = params[:retina_base_score]
-		puts "no_of_years=" 
-		puts "params", params[:id]
-		puts @no_of_years
 	end 
 	def create
 	   # retina_params = params.require(:retina).permit(:hba1c, 
@@ -28,6 +23,8 @@ class RetinasController < ApplicationController
 
        if @retina.save!
        	 session[:retina_id] = @retina.id
+       	 #default value of the field on back buttom press on serum page
+       	 session[:hba1c] = params[:retina][:hba1c]
          redirect_to retina_steps_path(@retina.id) 
          #puts "retina id in session is: #{session[:retina_id]}"
          #redirect_to new_retina_path 

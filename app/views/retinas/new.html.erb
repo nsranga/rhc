@@ -4,7 +4,7 @@
  <%= @retina.errors.full_messages.to_sentence %>
   <p>
     <%= f.label :hba1c, "HbA1c", autofocus: true %><br/>
-    <%= f.text_field :hba1c %>
+    <%= f.text_field :hba1c, value: session[:hba1c]  %>
   </p>
   
     <%= f.submit 'Next' %> 
