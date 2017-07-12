@@ -20,24 +20,11 @@ The Score for the below clinical data is: <%= @score = @retina.calculate_score %
 
 <br><br>
 Clinical parameters are:<br>
+
 <p>------------------------</p>
-<br>
-HbA1c : <%= @retina.hba1c %>
-<br>
-Serum Cholesterol: <%= @retina.lipid_profile %>
-<br>
-Kidney Renal Involvement : <%= @retina.kidney_renal %>
-<br>
-Smoking : <%= @retina.smoking %>
-<br>
-Smoking related lung disease : <%= @retina.smoking_related_lung_disease %>
-<br>
-Diabetic Score : <%= @retina.diabetic_duration %> 
-<br>
-CAD/Stroke: <%= @retina.cad_stroke %>
-<br>
-Good follow-up: <%= @retina.good_follow_up %>
-<br><br>
+
+<%= display_clinical_params(@retina) %>
+
 <a href="<%= new_retina_path %>">Click to enter new clinical data set </a>
 
 

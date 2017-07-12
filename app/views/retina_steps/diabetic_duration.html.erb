@@ -3,9 +3,11 @@
 <%= form_for @retina, url: wizard_path do |f| %> 
   <p>
     <%= f.label :diabetic_duration, "Duration" %><br/>
-    <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 2], ['11-15 Yrs', 1.5], ['11-15 Yrs', 1], ['>20 Yrs', 0.5]]) %>
+    <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 4], ['11-15 Yrs', 3], ['16-20 Yrs', 2], ['>20 Yrs', 1]]) %>
   </p>
  <%= f.submit 'Next' %>
  <%=  link_to 'Back', previous_wizard_path %>
 
 <% end %>
+<%= display_clinical_params(@retina) %>
+<br>

@@ -53,7 +53,7 @@ class Retina < ApplicationRecord
 	  @score = self.calculate_hba1c_score + 
 	           self.calculate_lipid_score + 
 	           self.kidney_renal +
-	           self.diabetic_duration +
+	           (self.diabetic_duration)/2 + # /2 --> to use integer database column, value is stored 2 X multiplied
 	           self.smoking +
 	           self.smoking_related_lung_disease +
 	           self.cad_stroke +
