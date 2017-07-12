@@ -50,13 +50,13 @@ module RetinasHelper
       if !retina.diabetic_duration.nil?
       	case retina.diabetic_duration
       	when 4 
-          str += content_tag(:p, "Diabetic Score : 5-10 Yrs\n") 
+          str += content_tag(:p, "Diabetic Duration : 5-10 Yrs\n") 
         when 3 
-          str += content_tag(:p, "Diabetic Score : 11-15 Yrs\n") 
+          str += content_tag(:p, "Diabetic Duration : 11-15 Yrs\n") 
         when 2
-          str += content_tag(:p, "Diabetic Score : 16-20 Yrs\n") 
+          str += content_tag(:p, "Diabetic Duration : 16-20 Yrs\n") 
         when 1
-          str += content_tag(:p, "Diabetic Score : >20 Yrs\n") 
+          str += content_tag(:p, "Diabetic Duration : >20 Yrs\n") 
         end 
       end 
 
