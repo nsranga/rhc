@@ -15,8 +15,10 @@ The Score for the below clinical data is: <%= @score = @retina.calculate_score %
 <br><br>
 
 
+<a href="#imagemodal" data-toggle="modal"> Click to see the Retina Images </a>
 
-<a href="#imagemodal" data-toggle="modal"> Click to see Retina Image </a>
+<%= lightbox_tag(image_path("100retinas/1o_tn.jpg"),
+              image_path("100retinas/" + (session[:retina_base_score]) + "o.jpg"), title="New Image", collection=nil, html_options = {"width" => "450", "height" => "350"}) %>
 
 <br><br>
 Clinical parameters are:<br>
@@ -37,11 +39,26 @@ Clinical parameters are:<br>
         <h4> Retina Image </h4>
       </div>
       <div class="modal-body">
-        <img id="imageresource" src="<%= image_path("100retinas/" + (session[:retina_base_score].to_i + @score * @year_count).to_i.to_s + "o.jpg") %>" alt="--No Retina Image to Display--" width="550" height="450">
+      <table>
+      <tr>
+      <th>Current Retina</th>
+      <td>
+        <img id="imageresource" src="<%= image_path("100retinas/" + (session[:retina_base_score]) + "o.jpg") %>" alt="--No Retina Image to Display--" width="450" height="350">
+      </td>
+      <th>Future Retina</th>
+      <td>
+        <img id="imageresource" src="<%= image_path("100retinas/" + (session[:retina_base_score].to_i + @score * @year_count).to_i.to_s + "o.jpg") %>" alt="--No Retina Image to Display--" width="450" height="350">
+      </td>
+      </tr> 
+      </table>
+        
       </div>
       <div class="modal-footer">
+        <h4> Disclaimer </h4>
         <button type="button" class="btn btn-default" data-dismiss="modal" data-target="#imagemodal">Close</button>
+
       </div>
     </div>
   </div>
 </div>
+

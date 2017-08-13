@@ -11,6 +11,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+gem 'rubylight'
 
 # Use wicked to create multi-step form to capture clinical parmeters with next option
 gem 'wicked'

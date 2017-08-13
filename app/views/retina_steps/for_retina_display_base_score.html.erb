@@ -1,11 +1,6 @@
 
 
 <%= form_for @retina, url: wizard_path do |f| %> 
-  <p>
-    <%= f.label :no_of_years, "Enter Years from now" %><br/>
-    <%= f.text_field :no_of_years, autofocus: true %>
-  </p>
-
     <p>
     <%= f.label :retina_base_score, "Base / Reference Retina Score" %><br/>
     <%= f.text_field :retina_base_score %>
@@ -20,3 +15,11 @@ Clinical parameters are:
 <br><br>
 <%= display_clinical_params(@retina) %>
 <br>
+
+<h3>Retinas to select for Base Score - view and enter the Retina #</h3>
+  <div>
+
+  <%= lay_retina_tn.html_safe %>
+
+  </div>
+</section>
