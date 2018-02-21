@@ -1,7 +1,7 @@
 
-<%= form_for @retina, url: wizard_path do |f| %> 
+<%= form_for @retina, url: wizard_path do |f| %>
    <p>
-    <%= f.label :smoking, "Smoking" %><br/>
+    <%= f.label :smoking, "Smoking" %>
     <%= f.select :smoking, options_for_select([['No', 0], ['Yes', 1], ['Related lung disease', 2]]) %>
   </p>
 
@@ -9,12 +9,11 @@
     <%= f.hidden_field :smoking_related_lung_disease, value: 1 %>
   </p>
 
- <%= f.submit 'Next' %>
-<%=  link_to 'Back', previous_wizard_path %>
+ <%= f.submit 'Next', :class => 'nextbtn' %>
+<%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
 <% end %>
 <br><br>
-Clinical parameters are:
-<br><br>
+<div class="footercontent">
+<h3>Clinical parameters are:</h3>
 <%= display_clinical_params(@retina) %>
-<br>
-
+</div>

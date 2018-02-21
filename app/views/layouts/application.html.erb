@@ -5,18 +5,22 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+
 
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= yield %>
-        </div>
-      </div>
+		<div id="header">
+    	<div class="amrita_logo"><img src="<%= asset_path('amrita_logo.jpg') %>" /></div>
+        <div class="eye_logo"><img src="<%= asset_path('retina.jpg') %>"></div>
     </div>
+    <div id="content">
+			<div class="form_element"> <%= yield %> </div>
+        <div class="previous"></div>
+        <div class="next"></div>
+    </div>
+     <div id="footer"></div>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

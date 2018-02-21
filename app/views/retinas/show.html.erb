@@ -7,18 +7,18 @@ $("#pop").on("click", function() {
 });
 </script>
 
-<a href="<%= root_path%>"> Home </a> <br> 
+<a href="<%= root_path%>"> Home </a> <br>
 
 The Score for the below clinical data is: <%= @score = @retina.calculate_score %>
 
-<% @year_count=session[:no_of_years].to_i %> 
+<% @year_count=session[:no_of_years].to_i %>
 <br><br>
 
 
 <a href="#imagemodal" data-toggle="modal"> Click to see the Retina Images </a>
 
-<%= lightbox_tag(image_path("100retinas/1o_tn.jpg"),
-              image_path("100retinas/" + (session[:retina_base_score]) + "o.jpg"), title="New Image", collection=nil, html_options = {"width" => "450", "height" => "350"}) %>
+<%= lightbox_tag(image_path("/assets/originals/1o_tn.jpg"),
+              image_path("/assets/originals/" + (session[:retina_base_score]) + ".jpg"), title="New Image", collection=nil, html_options = {"width" => "450", "height" => "350"}) %>
 
 <br><br>
 Clinical parameters are:<br>
@@ -43,15 +43,15 @@ Clinical parameters are:<br>
       <tr>
       <th>Current Retina</th>
       <td>
-        <img id="imageresource" src="<%= image_path("100retinas/" + (session[:retina_base_score]) + "o.jpg") %>" alt="--No Retina Image to Display--" width="450" height="350">
+        <img id="imageresource" src="<%= image_path("/assets/originals/" + (session[:retina_base_score]) + ".jpg") %>" alt="--No Retina Image to Display--" width="450" height="350">
       </td>
       <th>Future Retina</th>
       <td>
-        <img id="imageresource" src="<%= image_path("100retinas/" + (session[:retina_base_score].to_i + @score * @year_count).to_i.to_s + "o.jpg") %>" alt="--No Retina Image to Display--" width="450" height="350">
+        <img id="imageresource" src="<%= image_path("/assets/originals/" + (session[:retina_base_score].to_i + @score * @year_count).to_i.to_s + ".jpg") %>" alt="--No Retina Image to Display--" width="450" height="350">
       </td>
-      </tr> 
+      </tr>
       </table>
-        
+
       </div>
       <div class="modal-footer">
         <h4> Disclaimer </h4>
@@ -61,4 +61,3 @@ Clinical parameters are:<br>
     </div>
   </div>
 </div>
-

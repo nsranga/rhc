@@ -1,7 +1,7 @@
 
-<%= form_for @retina, url: wizard_path do |f| %> 
+<%= form_for @retina, url: wizard_path do |f| %>
   <p>
-    <%= f.label :kidney_renal, "Renal Involvement" %><br/>
+    <%= f.label :kidney_renal, "Renal Involvement" %>
     <%= f.select :kidney_renal, options_for_select([['No', 0], ['Microalbumineuria', 1], ['Creatinine > 1.6', 2], ['Creatinine > 4', 3]]) %>
   </p>
   <p>
@@ -14,11 +14,11 @@
     <%# f.hidden_field :kidney_micro_album, options_for_select([['Yes', 1], ['No', 0]]) %>
     <%= f.hidden_field :kidney_micro_album, value: 1 %>
   </p>
- <%= f.submit 'Next' %>
-<%=  link_to 'Back', previous_wizard_path %>
+ <%= f.submit 'Next', :class => 'nextbtn' %>
+<%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
 <% end %>
 <br><br>
-Clinical parameters are:
-<br><br>
+<div class="footercontent">
+<h3>Clinical parameters are:</h3>
 <%= display_clinical_params(@retina) %>
-<br>
+</div>

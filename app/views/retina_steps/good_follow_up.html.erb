@@ -1,16 +1,17 @@
 
 
-<%= form_for @retina, url: wizard_path do |f| %> 
+<%= form_for @retina, url: wizard_path do |f| %>
   <p>
-    <%= f.label :good_follow_up, "Good follow-up, once in three months" %><br/>
+    <%= f.label :good_follow_up, "Good follow-up, once in three months" %>
     <%= f.select :good_follow_up, options_for_select([['No', 5], ['Yes', 0]]) %>
   </p>
 
- <%= f.submit 'Next' %>
- <%=  link_to 'Back', previous_wizard_path %>
-<% end %>
-<br><br>
-Clinical parameters are:
-<br><br>
+  <%= f.submit 'Next', :class => 'nextbtn' %>
+  <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
+  <% end %>
+  <br><br>
+  
+<div class="footercontent">
+<h3>Clinical parameters are:</h3>
 <%= display_clinical_params(@retina) %>
-<br>
+</div>

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 
 
-# bootsrap for responsive UI 
+# bootsrap for responsive UI
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # for popovers and tooltips
@@ -48,7 +48,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
@@ -64,7 +64,7 @@ end
 
 group :production do
   # postgress database for Active Record
-  gem 'pg'
+  #gem 'pg'
   gem 'rails_12factor'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

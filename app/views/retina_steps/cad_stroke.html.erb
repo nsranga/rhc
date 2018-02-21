@@ -1,15 +1,16 @@
 
 
-<%= form_for @retina, url: wizard_path do |f| %> 
+<%= form_for @retina, url: wizard_path do |f| %>
   <p>
-    <%= f.label :cad_stroke, "History of Coronoary Artery Disease/ Stroke" %><br/>
+    <%= f.label :cad_stroke, "History of Coronoary Artery Disease/ Stroke" %>
     <%= f.select :cad_stroke, options_for_select([['No', 0], ['Yes', 2]]) %>
   </p>
- <%= f.submit 'Next' %>
- <%=  link_to 'Back', previous_wizard_path %>
-<% end %>
-<br><br>
-Clinical parameters are:
-<br><br>
+  <%= f.submit 'Next', :class => 'nextbtn' %>
+ <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
+ <% end %>
+ <br><br>
+ 
+<div class="footercontent">
+<h3>Clinical parameters are:</h3>
 <%= display_clinical_params(@retina) %>
-<br>
+</div>

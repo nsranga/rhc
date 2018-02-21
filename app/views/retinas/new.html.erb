@@ -2,11 +2,11 @@
 <%= form_for(@retina) do |f| %>
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
  <%= @retina.errors.full_messages.to_sentence %>
-  <p>
-    <%= f.label :hba1c, "HbA1c", autofocus: true %><br/>
+  <p class="content_text">
+    <%= f.label :hba1c, "HbA1c", autofocus: true %>
     <%= f.text_field :hba1c, value: session[:hba1c]  %>
   </p>
-  
-    <%= f.submit 'Next' %> 
-    <%=  link_to 'Home', root_path %>
+
+    <%= f.submit 'Next', :class => 'nextbtn' %>
+    <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
 <% end %>
