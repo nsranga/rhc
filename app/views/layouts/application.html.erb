@@ -14,13 +14,15 @@
     	<div class="amrita_logo"><img src="<%= asset_path('amrita_logo.jpg') %>" /></div>
         <div class="eye_logo"><img src="<%= asset_path('retina.jpg') %>"></div>
     </div>
-    <div id="content">
-			<div class="form_element"> <%= yield %> </div>
-        <div class="previous"></div>
-        <div class="next"></div>
-    </div>
-     <div id="footer"></div>
-
+<!--
+		<div id="content">
+			<div class="form_element">
+-->
+			<%= yield %>
+<!--	
+			</div>
+	</div>
+-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

@@ -1,12 +1,23 @@
 
+<div id="content">
+  <div class="login">
+
+
 <%= form_for(@retina) do |f| %>
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
  <%= @retina.errors.full_messages.to_sentence %>
-  <p class="content_text">
-    <%= f.label :hba1c, "HbA1c", autofocus: true %>
-    <%= f.text_field :hba1c, value: session[:hba1c]  %>
-  </p>
 
-    <%= f.submit 'Next', :class => 'nextbtn' %>
-    <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
+ <br><br>
+<center>
+    <b><%= f.label :hba1c, "HbA1c", autofocus: true %></b>
+    <%= f.text_field :hba1c, value: session[:hba1c]  %>
+</center>
+<br><br>
+
+      <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
+        <%= f.submit 'Next', :class => 'nextbtn' %>
 <% end %>
+
+
+</div>
+</div>

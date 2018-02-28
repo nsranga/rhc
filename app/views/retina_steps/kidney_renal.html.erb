@@ -1,24 +1,35 @@
 
+<div id="content">
+  <div class="login">
+
+
 <%= form_for @retina, url: wizard_path do |f| %>
-  <p>
-    <%= f.label :kidney_renal, "Renal Involvement" %>
+<br><br>
+<center>
+
+  <b>  <%= f.label :kidney_renal, "Renal Involvement" %></b>
     <%= f.select :kidney_renal, options_for_select([['No', 0], ['Microalbumineuria', 1], ['Creatinine > 1.6', 2], ['Creatinine > 4', 3]]) %>
-  </p>
-  <p>
+
     <%#= f.label :kidney_creatinine %>
     <%#= f.hidden_field :kidney_creatinine, size: 10 %>
     <%= f.hidden_field :kidney_creatinine, value: 1 %>
-  </p>
-  <p>
+
     <%#= f.label :kidney_micro_album %>
     <%# f.hidden_field :kidney_micro_album, options_for_select([['Yes', 1], ['No', 0]]) %>
     <%= f.hidden_field :kidney_micro_album, value: 1 %>
-  </p>
- <%= f.submit 'Next', :class => 'nextbtn' %>
+
+  </center>
+  <br><br>
+
 <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
+<%= f.submit 'Next', :class => 'nextbtn' %>
 <% end %>
-<br><br>
+
+</div>
+
 <div class="footercontent">
-<h3>Clinical parameters are:</h3>
+<u>Clinical parameters are: </u>
 <%= display_clinical_params(@retina) %>
+</div>
+
 </div>

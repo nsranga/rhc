@@ -1,16 +1,29 @@
 
 
+<div id="content">
+  <div class="login">
+
 <%= form_for @retina, url: wizard_path do |f| %>
-  <p>
-    <%= f.label :diabetic_duration, "Duration" %>
+<br><br>
+<center>
+
+    <b><%= f.label :diabetic_duration, "Duration" %> <br></b>
     <%= f.select :diabetic_duration, options_for_select([['5-10 Yrs', 4], ['11-15 Yrs', 3], ['16-20 Yrs', 2], ['>20 Yrs', 1]]) %>
-  </p>
-  <%= f.submit 'Next', :class => 'nextbtn' %>
+
+  </center>
+  <br><br>
+
+
  <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
+   <%= f.submit 'Next', :class => 'nextbtn' %>
+
  <% end %>
- <br><br>
+
+</div>
 
 <div class="footercontent">
-<h3>Clinical parameters are:</h3>
+<u>Clinical parameters are: </u>
 <%= display_clinical_params(@retina) %>
+</div>
+
 </div>

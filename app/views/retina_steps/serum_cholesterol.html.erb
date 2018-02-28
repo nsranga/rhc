@@ -1,16 +1,28 @@
 
+
+<div id="content">
+  <div class="login">
+
 <%= form_for @retina, url: wizard_path do |f| %>
 
-<p>
-    <%= f.label :lipid_profile, "Serum Cholesterol" %>
-    <%= f.text_field :lipid_profile, autofocus: true %>
-</p>
-
-<%= f.submit 'Next', :class => 'nextbtn'  %>
-<%=  link_to 'Back', new_retina_path, :class => 'previousbtn' %>
-<% end %>
 <br><br>
+<center>
+    <b><%= f.label :lipid_profile, "Serum Cholesterol" %></b>
+    <%= f.text_field :lipid_profile, autofocus: true %>
+  </center>
+  <br><br>
+
+<%=  link_to 'Back', new_retina_path, :class => 'previousbtn' %>
+<%= f.submit 'Next', :class => 'nextbtn'  %>
+<% end %>
+
+</div>
+
+
 <div class="footercontent">
-<h3>Clinical parameters are:</h3>
+<u>Clinical parameters are: </u>
 <%= display_clinical_params(@retina) %>
+</div>
+
+
 </div>
