@@ -17,13 +17,14 @@
  <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
 <%= f.submit 'Next', :class => 'nextbtn' %>
 
- <% end %>
 
 </div>
 
 <div class="footercontent">
-<h3>Clinical parameters are:</h3>
-<%= display_clinical_params(@retina) %>
+  <br>
+<center><h3><b> <%= f.label :clinical_params, "Entered Clinical Parameters" %></h3>
+<%= f.label :disp_clinic_params, display_clinical_params(@retina) %></b></center>
 </div>
 
 </div>
+<% end %>

@@ -27,7 +27,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (image) */
@@ -40,11 +40,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Modal Content Previous Button */
 .img_prevbtn1{
+  position: absolute;
      width: 50px;
     height: 50px;
-    margin-top: 250px;
+    margin-top: -250px;
     margin-left: 200px;
-    float: left;
+      float: left;
   color: #f1f1f1;
   font-weight: bold;
   text-align: center;
@@ -60,10 +61,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Modal Content Next Button */
 .img_nextbtn1{
+  position: absolute;
      width: 50px;
     height: 50px;
-    margin-top: 250px;
-    margin-right: 200px;
+    margin-top: -250px;
+    margin-left: 950px;
     float: right;
   color: #f1f1f1;
   font-weight: bold;
@@ -111,8 +113,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* The Close Button */
 .close1 {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 25px;
+    right: 55px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
@@ -144,28 +146,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </head>
 
 
-
-
-<body  onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= session[:retina_base_score].to_i + (@retina.calculate_score * session[:no_of_years].to_i) %>, <%= session[:no_of_years] %>);">
+<% @future_retina = session[:retina_base_score].to_i + (@retina.calculate_score * session[:no_of_years].to_i) %>
+<% @future_retina>100? @future_retina=100 : @future_retina; %>
+<body  onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= @future_retina.to_i %>, <%= session[:no_of_years] %>);">
 
     <div id="content">
             <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
 </div>
 
-     <div id="footer">
 
-     </div>
 
 
 
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
-  <span class="close1">&times;</span>
+  <img class="modal-content" id="img01">
+  <span class="close1">Close &times;</span>
   <span class="img_prevbtn1">&lt;</span>
   <span class="img_nextbtn1">&gt;</span>
-  <img class="modal-content" id="img01">
-
   <div id="caption"></div>
 </div>
 

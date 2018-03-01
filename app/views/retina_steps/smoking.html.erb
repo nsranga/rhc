@@ -18,13 +18,14 @@
 <%= f.submit 'Next', :class => 'nextbtn' %>
 
 
-<% end %>
 
 </div>
 
 <div class="footercontent">
-<u>Clinical parameters are: </u>
-<%= display_clinical_params(@retina) %>
+  <br>
+<center><h3><b> <%= f.label :clinical_params, "Entered Clinical Parameters" %></h3>
+<%= f.label :disp_clinic_params, display_clinical_params(@retina) %></b></center>
 </div>
 
 </div>
+<% end %>

@@ -27,7 +27,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (image) */
@@ -40,10 +40,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Modal Content Previous Button */
 .img_prevbtn{
+  position: absolute;
      width: 50px;
     height: 50px;
-    margin-top: 250px;
-    margin-left: 200px;
+    margin-top: -250px;
+    margin-left: -400px;
     float: left;
   color: #f1f1f1;
   font-weight: bold;
@@ -60,10 +61,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Modal Content Next Button */
 .img_nextbtn{
+  position: absolute;
      width: 50px;
     height: 50px;
-    margin-top: 250px;
-    margin-right: 200px;
+    margin-top: -250px;
+    margin-left: 350px;
     float: right;
   color: #f1f1f1;
   font-weight: bold;
@@ -111,8 +113,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* The Close Button */
 .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 25px;
+    right: 55px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
@@ -165,7 +167,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
      <b>SELECTED IMAGE NUMBER IS : </b><input type="text" id="txt1" style="display:inline;font-size:18px;margin-top:20px;background-color:#399; color:#FFF; width:50px;">
      -->
      </center>
-     </div>
+</div>
 
 <center>
 
@@ -398,10 +400,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
-  <span class="close">&times;</span>
+
+<img class="modal-content" id="img01">
+<span class="close">Close</span>
   <span class="img_prevbtn">&lt;</span>
   <span class="img_nextbtn">&gt;</span>
-  <img class="modal-content" id="img01">
+
   <div id="caption"></div>
 </div>
 
