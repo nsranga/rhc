@@ -18,15 +18,22 @@ class RetinasController < ApplicationController
 	   	      #                                        :diabetic_duration, 
 	   	       #                                       :cad_stroke, 
 	   	        #                                      :good_follow_up)
-       retina_params = params.require(:retina).permit(:hba1c)
+
+       retina_params = params.require(:retina).permit(:retina_base_score)
        @retina = Retina.create(retina_params)
 
        if @retina.save!
        	 session[:retina_id] = @retina.id
+
+
+      
+         # store value in session to be used later for construcing URL
+         session[:retina_base_score] = params[:retina][:retina_base_score]
        	 #default value of the field on back buttom press on serum page
-       	 session[:hba1c] = params[:retina][:hba1c]
+     
          redirect_to retina_steps_path(@retina.id) 
-         #puts "retina id in session is: #{session[:retina_id]}"
+         puts "retina id in session is: #{session[:retina_id]}"
+         puts "retina BASE SCORE in session is: #{session[:retina_base_score]}"
          #redirect_to new_retina_path 
        else
          render :new

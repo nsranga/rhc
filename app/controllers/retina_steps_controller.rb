@@ -1,6 +1,6 @@
 class RetinaStepsController < ApplicationController
   include Wicked::Wizard
-  steps :serum_cholesterol, :kidney_renal, :smoking, :diabetic_duration, :cad_stroke, :good_follow_up, :for_retina_display_yrs, :for_retina_display_base_score
+  steps :hba1c, :serum_cholesterol, :kidney_renal, :smoking, :diabetic_duration, :cad_stroke, :good_follow_up, :for_retina_display_yrs
   
   def show
   	@current_retina_id = current_retina_id
@@ -52,10 +52,13 @@ class RetinaStepsController < ApplicationController
 
       else 
 
-      retina_params = params.require(:retina).permit(:retina_base_score)
+      #retina_params = params.require(:retina).permit(:retina_base_score)
       
       # store value in session to be used later for construcing URL
-      session[:retina_base_score] = params[:retina][:retina_base_score]
+      #session[:retina_base_score] = params[:retina][:retina_base_score]
+
+      retina_params = params.require(:retina).permit(:hba1c)
+      session[:hba1c] = params[:retina][:hba1c]
       
   	end 
 

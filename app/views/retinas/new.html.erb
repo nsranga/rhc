@@ -1,23 +1,496 @@
 
-<div id="content">
-  <div class="login">
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="img_gallery_style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Modal Content Previous Button */
+.img_prevbtn{
+  position: absolute;
+     width: 50px;
+    height: 50px;
+    margin-top: -250px;
+    margin-left: -400px;
+    float: left;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+  font-size:40px;
+}
+
+.img_prevbtn:hover{
+  color: #bbb;
+  text-decoration: none;
+   cursor: pointer;
+}
 
 
-<%= form_for(@retina) do |f| %>
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
- <%= @retina.errors.full_messages.to_sentence %>
+/* Modal Content Next Button */
+.img_nextbtn{
+  position: absolute;
+     width: 50px;
+    height: 50px;
+    margin-top: -250px;
+    margin-left: 350px;
+    float: right;
+  color: #f1f1f1;
+  font-weight: bold;
+   font-size:40px;
+   text-align:center;
+}
 
- <br><br>
+.img_nextbtn:hover{
+  color: #bbb;
+  text-decoration: none;
+   cursor: pointer;
+}
+
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 0px 0;
+    height: 25px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 25px;
+    right: 55px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+
+.myImg1{
+	border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+</style>
+</head>
+
+
+<body>
+
+<div class="login1">
+
+<%= form_for @retina do |f| %>
 <center>
-    <b><%= f.label :hba1c, "HbA1c" %></b>
-    <%= f.text_field :hba1c, autofocus: true  %>
+
+    <b><%= f.label :retina_base_score, "Base / Reference Retina Score" %></b><br>
+    <%= f.text_field :retina_base_score %>
 </center>
 <br><br>
+ <%#= f.submit 'Fetch Retina'     attr_accessor :retina_base_score %>
 
-      <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
-        <%= f.submit 'Next', :class => 'nextbtn' %>
+   <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
+  <%= f.submit 'Next', :class => 'nextbtn' %>
 <% end %>
 
+<!--
+     <b>SELECTED IMAGE NUMBER IS : </b><input type="text" id="txt1" style="display:inline;font-size:18px;margin-top:20px;background-color:#399; color:#FFF; width:50px;">
+     -->
+     </center>
+</div>
+
+<center>
+
+<div class="heading_disp">
+<h3><u> RETINA IMAGES </u></h3>
+</div>
+
+
+<img id="myImg" src="/assets/thumbnails/1.jpg" alt="Retina - Image - 1 " class="myImg1" title=" 1 " onClick="displaymodal(1);">
+
+<img id="myImg" src="/assets/thumbnails/2.jpg" alt="Retina - Image - 2 " class="myImg1" title=" 2 " onClick="displaymodal(2);">
+
+<img id="myImg" src="/assets/thumbnails/3.jpg" alt="Retina - Image - 3 " class="myImg1" title=" 3 " onClick="displaymodal(3);">
+
+<img id="myImg" src="/assets/thumbnails/4.jpg" alt="Retina - Image - 4 " class="myImg1" title=" 4 " onClick="displaymodal(4);">
+
+<img id="myImg" src="/assets/thumbnails/5.jpg" alt="Retina - Image - 5 " class="myImg1" title=" 5 " onClick="displaymodal(5);">
+
+<img id="myImg" src="/assets/thumbnails/6.jpg" alt="Retina - Image - 6 " class="myImg1" title=" 6 " onClick="displaymodal(6);">
+
+<img id="myImg" src="/assets/thumbnails/7.jpg" alt="Retina - Image - 7 " class="myImg1" title=" 7 " onClick="displaymodal(7);">
+
+<img id="myImg" src="/assets/thumbnails/8.jpg" alt="Retina - Image - 8 " class="myImg1" title=" 8 " onClick="displaymodal(8);">
+
+<img id="myImg" src="/assets/thumbnails/9.jpg" alt="Retina - Image - 9 " class="myImg1" title=" 9 " onClick="displaymodal(9);">
+
+<img id="myImg" src="/assets/thumbnails/10.jpg" alt="Retina - Image - 10 " class="myImg1" title=" 10 " onClick="displaymodal(10);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/11.jpg" alt="Retina - Image - 11 " class="myImg1" title=" 11 " onClick="displaymodal(11);">
+
+<img id="myImg" src="/assets/thumbnails/12.jpg" alt="Retina - Image - 12 " class="myImg1" title=" 12 " onClick="displaymodal(12);">
+
+<img id="myImg" src="/assets/thumbnails/13.jpg" alt="Retina - Image - 13 " class="myImg1" title=" 13 " onClick="displaymodal(13);">
+
+<img id="myImg" src="/assets/thumbnails/14.jpg" alt="Retina - Image - 14 " class="myImg1" title=" 14 " onClick="displaymodal(14);">
+
+<img id="myImg" src="/assets/thumbnails/15.jpg" alt="Retina - Image - 15 " class="myImg1" title=" 15 " onClick="displaymodal(15);">
+
+<img id="myImg" src="/assets/thumbnails/16.jpg" alt="Retina - Image - 16 " class="myImg1" title=" 16 " onClick="displaymodal(16);">
+
+<img id="myImg" src="/assets/thumbnails/17.jpg" alt="Retina - Image - 17 " class="myImg1" title=" 17 " onClick="displaymodal(17);">
+
+<img id="myImg" src="/assets/thumbnails/18.jpg" alt="Retina - Image - 18 " class="myImg1" title=" 18 " onClick="displaymodal(18);">
+
+<img id="myImg" src="/assets/thumbnails/19.jpg" alt="Retina - Image - 19 " class="myImg1" title=" 19 " onClick="displaymodal(19);">
+
+<img id="myImg" src="/assets/thumbnails/20.jpg" alt="Retina - Image - 20 " class="myImg1" title=" 20 " onClick="displaymodal(20);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/21.jpg" alt="Retina - Image - 21 " class="myImg1" title=" 21 " onClick="displaymodal(21);">
+
+<img id="myImg" src="/assets/thumbnails/22.jpg" alt="Retina - Image - 22 " class="myImg1" title=" 22 " onClick="displaymodal(22);">
+
+<img id="myImg" src="/assets/thumbnails/23.jpg" alt="Retina - Image - 23 " class="myImg1" title=" 23 " onClick="displaymodal(23);">
+
+<img id="myImg" src="/assets/thumbnails/24.jpg" alt="Retina - Image - 24 " class="myImg1" title=" 24 " onClick="displaymodal(24);">
+
+<img id="myImg" src="/assets/thumbnails/25.jpg" alt="Retina - Image - 25 " class="myImg1" title=" 25 " onClick="displaymodal(25);">
+
+<img id="myImg" src="/assets/thumbnails/26.jpg" alt="Retina - Image - 26 " class="myImg1" title=" 26 " onClick="displaymodal(26);">
+
+<img id="myImg" src="/assets/thumbnails/27.jpg" alt="Retina - Image - 27 " class="myImg1" title=" 27 " onClick="displaymodal(27);">
+
+<img id="myImg" src="/assets/thumbnails/28.jpg" alt="Retina - Image - 28 " class="myImg1" title=" 28 " onClick="displaymodal(28);">
+
+<img id="myImg" src="/assets/thumbnails/29.jpg" alt="Retina - Image - 29 " class="myImg1" title=" 29 " onClick="displaymodal(29);">
+
+<img id="myImg" src="/assets/thumbnails/30.jpg" alt="Retina - Image - 30 " class="myImg1" title=" 30 " onClick="displaymodal(30);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/31.jpg" alt="Retina - Image - 31 " class="myImg1" title=" 31 " onClick="displaymodal(31);">
+
+<img id="myImg" src="/assets/thumbnails/32.jpg" alt="Retina - Image - 32 " class="myImg1" title=" 32 " onClick="displaymodal(32);">
+
+<img id="myImg" src="/assets/thumbnails/33.jpg" alt="Retina - Image - 33 " class="myImg1" title=" 33 " onClick="displaymodal(33);">
+
+<img id="myImg" src="/assets/thumbnails/34.jpg" alt="Retina - Image - 34 " class="myImg1" title=" 34 " onClick="displaymodal(34);">
+
+<img id="myImg" src="/assets/thumbnails/35.jpg" alt="Retina - Image - 35 " class="myImg1" title=" 35 " onClick="displaymodal(35);">
+
+<img id="myImg" src="/assets/thumbnails/36.jpg" alt="Retina - Image - 36 " class="myImg1" title=" 36 " onClick="displaymodal(36);">
+
+<img id="myImg" src="/assets/thumbnails/37.jpg" alt="Retina - Image - 37 " class="myImg1" title=" 37 " onClick="displaymodal(37);">
+
+<img id="myImg" src="/assets/thumbnails/38.jpg" alt="Retina - Image - 38 " class="myImg1" title=" 38 " onClick="displaymodal(38);">
+
+<img id="myImg" src="/assets/thumbnails/39.jpg" alt="Retina - Image - 39 " class="myImg1" title=" 39 " onClick="displaymodal(39);">
+
+<img id="myImg" src="/assets/thumbnails/40.jpg" alt="Retina - Image - 40 " class="myImg1" title=" 40 " onClick="displaymodal(40);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/41.jpg" alt="Retina - Image - 41 " class="myImg1" title=" 41 " onClick="displaymodal(41);">
+
+<img id="myImg" src="/assets/thumbnails/42.jpg" alt="Retina - Image - 42 " class="myImg1" title=" 42 " onClick="displaymodal(42);">
+
+<img id="myImg" src="/assets/thumbnails/43.jpg" alt="Retina - Image - 43 " class="myImg1" title=" 43 " onClick="displaymodal(43);">
+
+<img id="myImg" src="/assets/thumbnails/44.jpg" alt="Retina - Image - 44 " class="myImg1" title=" 44 " onClick="displaymodal(44);">
+
+<img id="myImg" src="/assets/thumbnails/45.jpg" alt="Retina - Image - 45 " class="myImg1" title=" 45 " onClick="displaymodal(45);">
+
+<img id="myImg" src="/assets/thumbnails/46.jpg" alt="Retina - Image - 46 " class="myImg1" title=" 46 " onClick="displaymodal(46);">
+
+<img id="myImg" src="/assets/thumbnails/47.jpg" alt="Retina - Image - 47 " class="myImg1" title=" 47 " onClick="displaymodal(47);">
+
+<img id="myImg" src="/assets/thumbnails/48.jpg" alt="Retina - Image - 48 " class="myImg1" title=" 48 " onClick="displaymodal(48);">
+
+<img id="myImg" src="/assets/thumbnails/49.jpg" alt="Retina - Image - 49 " class="myImg1" title=" 49 " onClick="displaymodal(49);">
+
+<img id="myImg" src="/assets/thumbnails/50.jpg" alt="Retina - Image - 50 " class="myImg1" title=" 50 " onClick="displaymodal(50);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/51.jpg" alt="Retina - Image - 51 " class="myImg1" title=" 51 " onClick="displaymodal(51);">
+
+<img id="myImg" src="/assets/thumbnails/52.jpg" alt="Retina - Image - 52 " class="myImg1" title=" 52 " onClick="displaymodal(52);">
+
+<img id="myImg" src="/assets/thumbnails/53.jpg" alt="Retina - Image - 53 " class="myImg1" title=" 53 " onClick="displaymodal(53);">
+
+<img id="myImg" src="/assets/thumbnails/54.jpg" alt="Retina - Image - 54 " class="myImg1" title=" 54 " onClick="displaymodal(54);">
+
+<img id="myImg" src="/assets/thumbnails/55.jpg" alt="Retina - Image - 55 " class="myImg1" title=" 55 " onClick="displaymodal(55);">
+
+<img id="myImg" src="/assets/thumbnails/56.jpg" alt="Retina - Image - 56 " class="myImg1" title=" 56 " onClick="displaymodal(56);">
+
+<img id="myImg" src="/assets/thumbnails/57.jpg" alt="Retina - Image - 57 " class="myImg1" title=" 57 " onClick="displaymodal(57);">
+
+<img id="myImg" src="/assets/thumbnails/58.jpg" alt="Retina - Image - 58 " class="myImg1" title=" 58 " onClick="displaymodal(58);">
+
+<img id="myImg" src="/assets/thumbnails/59.jpg" alt="Retina - Image - 59 " class="myImg1" title=" 59 " onClick="displaymodal(59);">
+
+<img id="myImg" src="/assets/thumbnails/60.jpg" alt="Retina - Image - 60 " class="myImg1" title=" 60 " onClick="displaymodal(60);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/61.jpg" alt="Retina - Image - 61 " class="myImg1" title=" 61 " onClick="displaymodal(61);">
+
+<img id="myImg" src="/assets/thumbnails/62.jpg" alt="Retina - Image - 62 " class="myImg1" title=" 62 " onClick="displaymodal(62);">
+
+<img id="myImg" src="/assets/thumbnails/63.jpg" alt="Retina - Image - 63 " class="myImg1" title=" 63 " onClick="displaymodal(63);">
+
+<img id="myImg" src="/assets/thumbnails/64.jpg" alt="Retina - Image - 64 " class="myImg1" title=" 64 " onClick="displaymodal(64);">
+
+<img id="myImg" src="/assets/thumbnails/65.jpg" alt="Retina - Image - 65 " class="myImg1" title=" 65 " onClick="displaymodal(65);">
+
+<img id="myImg" src="/assets/thumbnails/66.jpg" alt="Retina - Image - 66 " class="myImg1" title=" 66 " onClick="displaymodal(66);">
+
+<img id="myImg" src="/assets/thumbnails/67.jpg" alt="Retina - Image - 67 " class="myImg1" title=" 67 " onClick="displaymodal(67);">
+
+<img id="myImg" src="/assets/thumbnails/68.jpg" alt="Retina - Image - 68 " class="myImg1" title=" 68 " onClick="displaymodal(68);">
+
+<img id="myImg" src="/assets/thumbnails/69.jpg" alt="Retina - Image - 69 " class="myImg1" title=" 69 " onClick="displaymodal(69);">
+
+<img id="myImg" src="/assets/thumbnails/70.jpg" alt="Retina - Image - 70 " class="myImg1" title=" 70 " onClick="displaymodal(70);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/71.jpg" alt="Retina - Image - 71 " class="myImg1" title=" 71 " onClick="displaymodal(71);">
+
+<img id="myImg" src="/assets/thumbnails/72.jpg" alt="Retina - Image - 72 " class="myImg1" title=" 72 " onClick="displaymodal(72);">
+
+<img id="myImg" src="/assets/thumbnails/73.jpg" alt="Retina - Image - 73 " class="myImg1" title=" 73 " onClick="displaymodal(73);">
+
+<img id="myImg" src="/assets/thumbnails/74.jpg" alt="Retina - Image - 74 " class="myImg1" title=" 74 " onClick="displaymodal(74);">
+
+<img id="myImg" src="/assets/thumbnails/75.jpg" alt="Retina - Image - 75 " class="myImg1" title=" 75 " onClick="displaymodal(75);">
+
+<img id="myImg" src="/assets/thumbnails/76.jpg" alt="Retina - Image - 76 " class="myImg1" title=" 76 " onClick="displaymodal(76);">
+
+<img id="myImg" src="/assets/thumbnails/77.jpg" alt="Retina - Image - 77 " class="myImg1" title=" 77 " onClick="displaymodal(77);">
+
+<img id="myImg" src="/assets/thumbnails/78.jpg" alt="Retina - Image - 78 " class="myImg1" title=" 78 " onClick="displaymodal(78);">
+
+<img id="myImg" src="/assets/thumbnails/79.jpg" alt="Retina - Image - 79 " class="myImg1" title=" 79 " onClick="displaymodal(79);">
+
+<img id="myImg" src="/assets/thumbnails/80.jpg" alt="Retina - Image - 80 " class="myImg1" title=" 80 " onClick="displaymodal(80);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/81.jpg" alt="Retina - Image - 81 " class="myImg1" title=" 81 " onClick="displaymodal(81);">
+
+<img id="myImg" src="/assets/thumbnails/82.jpg" alt="Retina - Image - 82 " class="myImg1" title=" 82 " onClick="displaymodal(82);">
+
+<img id="myImg" src="/assets/thumbnails/83.jpg" alt="Retina - Image - 83 " class="myImg1" title=" 83 " onClick="displaymodal(83);">
+
+<img id="myImg" src="/assets/thumbnails/84.jpg" alt="Retina - Image - 84 " class="myImg1" title=" 84 " onClick="displaymodal(84);">
+
+<img id="myImg" src="/assets/thumbnails/85.jpg" alt="Retina - Image - 85 " class="myImg1" title=" 85 " onClick="displaymodal(85);">
+
+<img id="myImg" src="/assets/thumbnails/86.jpg" alt="Retina - Image - 86 " class="myImg1" title=" 86 " onClick="displaymodal(86);">
+
+<img id="myImg" src="/assets/thumbnails/87.jpg" alt="Retina - Image - 87 " class="myImg1" title=" 87 " onClick="displaymodal(87);">
+
+<img id="myImg" src="/assets/thumbnails/88.jpg" alt="Retina - Image - 88 " class="myImg1" title=" 88 " onClick="displaymodal(88);">
+
+<img id="myImg" src="/assets/thumbnails/89.jpg" alt="Retina - Image - 89 " class="myImg1" title=" 89 " onClick="displaymodal(89);">
+
+<img id="myImg" src="/assets/thumbnails/90.jpg" alt="Retina - Image - 90 " class="myImg1" title=" 90 " onClick="displaymodal(90);">
+
+<br>
+
+<img id="myImg" src="/assets/thumbnails/91.jpg" alt="Retina - Image - 91 " class="myImg1" title=" 91 " onClick="displaymodal(91);">
+
+<img id="myImg" src="/assets/thumbnails/92.jpg" alt="Retina - Image - 92 " class="myImg1" title=" 92 " onClick="displaymodal(92);">
+
+<img id="myImg" src="/assets/thumbnails/93.jpg" alt="Retina - Image - 93 " class="myImg1" title=" 93 " onClick="displaymodal(93);">
+
+<img id="myImg" src="/assets/thumbnails/94.jpg" alt="Retina - Image - 94 " class="myImg1" title=" 94 " onClick="displaymodal(94);">
+
+<img id="myImg" src="/assets/thumbnails/95.jpg" alt="Retina - Image - 95 " class="myImg1" title=" 95 " onClick="displaymodal(95);">
+
+<img id="myImg" src="/assets/thumbnails/96.jpg" alt="Retina - Image - 96 " class="myImg1" title=" 96 " onClick="displaymodal(96);">
+
+<img id="myImg" src="/assets/thumbnails/97.jpg" alt="Retina - Image - 97 " class="myImg1" title=" 97 " onClick="displaymodal(97);">
+
+<img id="myImg" src="/assets/thumbnails/98.jpg" alt="Retina - Image - 98 " class="myImg1" title=" 98 " onClick="displaymodal(98);">
+
+<img id="myImg" src="/assets/thumbnails/99.jpg" alt="Retina - Image - 99 " class="myImg1" title=" 99 " onClick="displaymodal(99);">
+
+<img id="myImg" src="/assets/thumbnails/100.jpg" alt="Retina - Image - 100 " class="myImg1" title=" 100 " onClick="displaymodal(100);">
+
+<br>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <div id="caption"></div>
+<img class="modal-content" id="img01">
+  <span class="close">Select &times;</span>
+  <span class="img_prevbtn">&lt;</span>
+  <span class="img_nextbtn">&gt;</span>
+
 
 </div>
+
+
+
+<script>
+/*
+// Get the modal
+var modal = document.getElementById('myModal');
+var img1 = document.getElementsByClassName("myImg1");
+var modalImg = document.getElementById("img01");
+var imgnum=0;
+
+function displaymodal(i){
+	imgnum=i;
+    modal.style.display = "block";
+    //modalImg.src = this.src;
+	modalImg.src = "pics_retinas/originals/" + i + ".jpg";
+    captionText.innerHTML = "Retina - Image - " +i;
+}
+var captionText = document.getElementById("caption");
+
+
+var previmg = document.getElementsByClassName("img_prevbtn")[0];
+
+previmg.onclick = function() {
+	if(imgnum >2 )
+		imgnum = imgnum - 1;
+	else
+		imgnum = 1;
+
+	captionText.innerHTML = "Retina - Image - " +imgnum;
+	modalImg.src = "pics_retinas/originals/" + imgnum + ".jpg";
+    modal.style.display = "block";
+}
+
+var nxtimg = document.getElementsByClassName("img_nextbtn")[0];
+
+nxtimg.onclick = function() {
+	if(imgnum < 100)
+		imgnum = imgnum + 1;
+	else
+		imgnum = 100;
+
+	captionText.innerHTML = "Retina - Image - " +imgnum;
+	modalImg.src = "pics_retinas/originals/" + imgnum + ".jpg";
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+	document.getElementById("txt1").value = imgnum;
+    modal.style.display = "none";
+}
+*/
+
+</script>
+
+</body>
+</html>
+
+
+<!--
+<%= form_for @retina do |f| %>
+    <p>
+    <%= f.label :retina_base_score, "Base / Reference Retina Score" %>
+    <%= f.text_field :retina_base_score %>
+  </p>
+
+ <%#= f.submit 'Fetch Retina'     attr_accessor :retina_base_score %>
+  <%= f.submit 'Next', :class => 'nextbtn' %>
+ <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
+<% end %>
+<br><br>
+
+<div class="footercontent">
+<h3>Clinical parameters are:</h3>
+<%= display_clinical_params(@retina) %>
+
+<h3>Retinas to select for Base Score - view and enter the Retina #</h3>
+
+  <%= lay_retina_tn.html_safe %>
+
+</section>
 </div>
+-->
