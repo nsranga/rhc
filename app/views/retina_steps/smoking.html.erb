@@ -6,8 +6,8 @@
 <br><br>
 <center>
 
-  <b>  <%= f.label :smoking, "Smoking" %> <br></b>
-    <%= f.select :smoking, options_for_select([['No', 0], ['Yes', 1], ['Related lung disease', 2]]) %>
+  <b>  <%= f.label :smoking, "Smoking", :class => 'lblcss' %> <br></b>
+    <%= f.select(:smoking, options_for_select([['No', 0], ['Yes', 1], ['Related lung disease', 2]]), {}, {:class => 'txtcss'}) %>
 
     <%= f.hidden_field :smoking_related_lung_disease, value: 1 %>
 

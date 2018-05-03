@@ -152,11 +152,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <%= form_for @retina do |f| %>
 <center>
-
+<!--
     <b><%= f.label :retina_base_score, "Base / Reference Retina Score" %></b><br>
-    <%= f.text_field :retina_base_score %>
+-->
+    <%= f.hidden_field :retina_base_score %>
 </center>
-<br><br>
+<br>
  <%#= f.submit 'Fetch Retina'     attr_accessor :retina_base_score %>
 
    <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
@@ -170,12 +171,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </div>
 
 <center>
-
+<!--
 <div class="heading_disp">
 <h3><u> RETINA IMAGES </u></h3>
 </div>
-
-
+-->
+<br>
 <img id="myImg" src="/assets/thumbnails/1.jpg" alt="Retina - Image - 1 " class="myImg1" title=" 1 " onClick="displaymodal(1);">
 
 <img id="myImg" src="/assets/thumbnails/2.jpg" alt="Retina - Image - 2 " class="myImg1" title=" 2 " onClick="displaymodal(2);">

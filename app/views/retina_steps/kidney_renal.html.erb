@@ -7,8 +7,8 @@
 <br><br>
 <center>
 
-  <b>  <%= f.label :kidney_renal, "Renal Involvement" %></b>
-    <%= f.select :kidney_renal, options_for_select([['No', 0], ['Microalbumineuria', 1], ['Creatinine > 1.6', 2], ['Creatinine > 4', 3]]) %>
+  <b>  <%= f.label :kidney_renal, "Renal Involvement", :class => 'lblcss'  %></b>
+    <%= f.select(:kidney_renal, options_for_select([['No', 0], ['Microalbumineuria', 1], ['Creatinine > 1.6', 2], ['Creatinine > 4', 3]]), {}, {:class => 'txtcss'}) %>
 
     <%#= f.label :kidney_creatinine %>
     <%#= f.hidden_field :kidney_creatinine, size: 10 %>

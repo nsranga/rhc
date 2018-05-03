@@ -8,11 +8,11 @@
 <br><br>
 <center>
 
-    <b><%= f.label :cad_stroke, "History of Coronoary Artery Disease/ Stroke" %></b><br>
-    <%= f.select :cad_stroke, options_for_select([['No', 0], ['Yes', 2]]) %>
+    <b><%= f.label :cad_stroke, "History of Coronoary Artery Disease/ Stroke", :class => 'lblcss' %></b><br>
+    <%= f.select(:cad_stroke, options_for_select([['No', 0], ['Yes', 2]]), {}, {:class => 'txtcss'}) %>
 
   </center>
-  <br><br>
+  <br>
 
  <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
 <%= f.submit 'Next', :class => 'nextbtn' %>

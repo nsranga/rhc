@@ -8,10 +8,10 @@
 <br><br>
 <center>
 
-<b>    <%= f.label :good_follow_up, "Good follow-up, once in three months" %></b><br>
-    <%= f.select :good_follow_up, options_for_select([['No', 5], ['Yes', 0]]) %>
+<b>    <%= f.label :good_follow_up, "Good follow-up, once in three months", :class => 'lblcss' %></b><br>
+    <%= f.select(:good_follow_up, options_for_select([['No', 5], ['Yes', 0]]), {}, {:class => 'txtcss'}) %>
   </center>
-  <br><br>
+  <br>
 
   <%=  link_to 'Back', previous_wizard_path, :class => 'previousbtn' %>
   <%= f.submit 'Next', :class => 'nextbtn' %>

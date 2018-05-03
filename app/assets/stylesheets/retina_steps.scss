@@ -76,21 +76,23 @@ body {
 }
 
 .login {
-  background: #eceeee;
+  //background: #eceeee;
+  background-color: rgba(9,47,78,.5);
   border: 1px solid #42464b;
   border-radius: 6px;
-  height: 257px;
+  height: 207px;
   margin: 20px 20px 0;
   width: 298px;
   float: left;
 }
 
 .login1 {
-  background: #eceeee;
+  //background: #eceeee;
+  background-color: rgba(9,47,78,.5);
   border: 1px solid #42464b;
   border-radius: 6px;
-  height: 200px;
-  margin: 20px auto 0;
+  height: 80px;
+  margin: 10px auto 0;
   width: 298px;
 }
 
@@ -119,41 +121,59 @@ body {
   float: left;
 }
 */
+
+.lblcss{
+  color: #FFF;
+}
+
+.txtcss {
+  padding: 10px 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
 .previousbtn{
-	background-color: #999;
-	width: 100px;
+	background-color: #155b74;
+	width: 130px;
 	height: 50px;
 	//margin-top: 50px;
-	margin-left: 40px;
+	margin-left: 10px;
 	float: left;
-  color: #155b74;
+  color: #FFF;
   font-weight: bold;
   text-align: center;
   line-height: 3;
   border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-family: sans-serif;
 }
 
 .previousbtn:hover{
   color: #FFF;
-  background-color: #155b74;
+  background-color: #6f1559;
   text-decoration: none;
 }
 
 .nextbtn{
-	background-color: #999;
-	width: 100px;
+	background-color: #155b74;
+	width: 130px;
 	height: 50px;
   //margin-top: 50px;
 	margin-left: 20px;
 	float: left;
-  color: #155b74;
+  color: #FFF;
   font-weight: bold;
+  border: none;
   border-radius: 10px;
+  letter-spacing: 5px;
+  font-family: sans-serif;
+  cursor: pointer;
 }
 
 .nextbtn:hover{
   color: #FFF;
-  background-color: #155b74;
+  background-color: #6f1559;
   text-decoration: none;
 }
 
@@ -166,12 +186,14 @@ body {
 
 
 .footercontent {
-  background: #eceeee;
+  //background: #eceeee;
+  background-color: rgba(9,47,78,.5);
   border: 1px solid #42464b;
   border-radius: 6px;
   height: 357px;
   margin: 20px 400px 0;
   width: 498px;
+  color: #FFF;
 //  float: left;
 }
 

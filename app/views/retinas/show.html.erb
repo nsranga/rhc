@@ -148,10 +148,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <% @future_retina = session[:retina_base_score].to_i + (@retina.calculate_score * session[:no_of_years].to_i) %>
 <% @future_retina>100? @future_retina=100 : @future_retina; %>
+<!--
 <body  onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= @future_retina.to_i %>, <%= session[:no_of_years] %>);">
+-->
+
+<body onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= @future_retina.to_i %>, <%= session[:no_of_years] %>);">
 
     <div id="content">
+    <center>
+<img src="" id="imgdemo1" width="45%" title="Current Retina Image">
+<img src="" id="imgdem2" width="45%" title="Future Retina Image"> <br><br></center>
             <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
+
 </div>
 
 
@@ -159,7 +167,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<!-- The Modal -->
+<!-- The Modal
 <div id="myModal" class="modal">
   <img class="modal-content" id="img01">
   <span class="close1">Close &times;</span>
@@ -167,14 +175,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <span class="img_nextbtn1">&gt;</span>
   <div id="caption"></div>
 </div>
-
+-->
 
 
 <script>
 // Get the modal
-var modal = document.getElementById('myModal');
-var img1 = document.getElementsByClassName("myImg1");
-var modalImg = document.getElementById("img01");
+//var modal = document.getElementById('myModal');
+//var img1 = document.getElementsByClassName("myImg1");
+var modalImg1 = document.getElementById("imgdemo1");
+var modalImg2 = document.getElementById("imgdemo2");
 var imgnum=0;
 var imgnum2=0;
 var yrs=0;
@@ -184,11 +193,14 @@ function displaymodal1(i1,j1,yr){
 	imgnum0=i1;
 	imgnum1=j1;
   yrs=yr;
-    modal.style.display = "block";
+    //modal.style.display = "block";
     //modalImg.src = this.src;
-	modalImg.src = "/assets/originals/" + imgnum0 + ".jpg";
-    captionText.innerHTML = " CURRENT RETINA IMAGE ";
+	modalImg1.src = "/assets/originals/" + imgnum0 + ".jpg";
+  modalImg2.src = "/assets/originals/" + imgnum1 + ".jpg";
+    //captionText.innerHTML = " CURRENT RETINA IMAGE ";
 }
+
+/*
 var captionText = document.getElementById("caption");
 
 
@@ -203,7 +215,7 @@ previmg1.onclick = function() {
 var nxtimg1 = document.getElementsByClassName("img_nextbtn1")[0];
 
 nxtimg1.onclick = function() {
-	captionText.innerHTML = "FUTURE RETINA IMAGE AFTER " + yrs + " YEARS";
+	captionText.innerHTML = "FUTURE RETINA IMAGE AFTER " + yrs + " YEARS " + ;
 	modalImg.src = "/assets/originals/" + imgnum1 + ".jpg";
 }
 
@@ -216,7 +228,7 @@ var closeimg = document.getElementsByClassName("close1")[0];
 closeimg.onclick = function() {
     modal.style.display = "none";
 }
-
+*/
 </script>
 
 </body>
@@ -238,10 +250,12 @@ closeimg.onclick = function() {
 <br>
 
 <script>
+/*
 $("#pop").on("click", function() {
    $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
    $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
 });
+*/
 </script>
 
 <a href="<%= root_path%>"> Home </a> <br>

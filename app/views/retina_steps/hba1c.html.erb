@@ -7,12 +7,12 @@
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
  <%= @retina.errors.full_messages.to_sentence %>
 
- <br><br>
+ <br>
 <center>
-    <b><%= f.label :hba1c, "HbA1c" %></b>
-    <%= f.text_field :hba1c %>
+    <b><%= f.label :hba1c, "HbA1c", :class => 'lblcss' %></b><br>
+    <%= f.text_field :hba1c, placeholder: 'HbA1c', :class => 'txtcss' %>
 </center>
-<br><br>
+<br>
 
         <%=  link_to 'Back', new_retina_path, :class => 'previousbtn' %>
 
