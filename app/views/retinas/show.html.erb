@@ -4,6 +4,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="img_gallery_style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -21,10 +22,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 10px; /* Location of the box */
-    left: 0;
+    left: 10%;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 80%; /* Full width */
+    height: 75%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
@@ -155,10 +156,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <body onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= @future_retina.to_i %>, <%= session[:no_of_years] %>);">
 
     <div id="content">
+<%=  link_to 'Home', root_path, :class => 'previousbtnend' %>
     <center>
-<img src="" id="imgdemo1" width="45%" title="Current Retina Image">
-<img src="" id="imgdem2" width="45%" title="Future Retina Image"> <br><br></center>
-            <%=  link_to 'Home', root_path, :class => 'previousbtn' %>
+<img src="" id="imgdemo1" width="45%" title="Current Retina Image" onMouseOver="final_displaymodal(<%= session[:retina_base_score] %>);">
+<img src="" id="imgdemo2" width="45%" title="Future Retina Image" onMouseOver="final_displaymodal(<%= @future_retina.to_i %>);"> <br><br></center>
+
 
 </div>
 
@@ -167,21 +169,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 
-<!-- The Modal
+<!-- The Modal-->
 <div id="myModal" class="modal">
   <img class="modal-content" id="img01">
   <span class="close1">Close &times;</span>
-  <span class="img_prevbtn1">&lt;</span>
-  <span class="img_nextbtn1">&gt;</span>
   <div id="caption"></div>
 </div>
--->
+
 
 
 <script>
 // Get the modal
-//var modal = document.getElementById('myModal');
-//var img1 = document.getElementsByClassName("myImg1");
+var modal = document.getElementById('myModal');
+var modalimg = document.getElementsByClassName("myImg1");
 var modalImg1 = document.getElementById("imgdemo1");
 var modalImg2 = document.getElementById("imgdemo2");
 var imgnum=0;
@@ -196,9 +196,20 @@ function displaymodal1(i1,j1,yr){
     //modal.style.display = "block";
     //modalImg.src = this.src;
 	modalImg1.src = "/assets/originals/" + imgnum0 + ".jpg";
+  //modalImg1.title=imgnum0;
   modalImg2.src = "/assets/originals/" + imgnum1 + ".jpg";
+  //modalImg2.title=imgnum1;
     //captionText.innerHTML = " CURRENT RETINA IMAGE ";
 }
+
+function final_displaymodal(i){
+	imgnum=i;
+  modal.style.display = "block";
+  //modalImg.src = this.src;
+	modalImg.src = "/assets/originals/" + i + ".jpg";
+    //captionText.innerHTML = "Retina - Image - " +i;
+}
+
 
 /*
 var captionText = document.getElementById("caption");
@@ -221,6 +232,7 @@ nxtimg1.onclick = function() {
 
 // Get the <span> element that closes the modal
 //var span = document.getElementsByClassName("close")[0];
+*/
 
 // When the user clicks on <span> (x), close the modal
 var closeimg = document.getElementsByClassName("close1")[0];
@@ -228,7 +240,7 @@ var closeimg = document.getElementsByClassName("close1")[0];
 closeimg.onclick = function() {
     modal.style.display = "none";
 }
-*/
+
 </script>
 
 </body>

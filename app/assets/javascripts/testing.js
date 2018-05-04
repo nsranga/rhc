@@ -1,5 +1,6 @@
 
-
+// Get the Form
+var retinaform = document.getElementById('new_retina');
 // Get the modal
 var modal = document.getElementById('myModal');
 var img1 = document.getElementsByClassName("myImg1");
@@ -11,7 +12,7 @@ function displaymodal(i){
     modal.style.display = "block";
     //modalImg.src = this.src;
 	modalImg.src = "/assets/originals/" + i + ".jpg";
-    captionText.innerHTML = "Retina - Image - " +i;
+    //captionText.innerHTML = "Retina - Image - " +i;
 }
 var captionText = document.getElementById("caption");
 
@@ -24,7 +25,7 @@ previmg.onclick = function() {
 	else
 		imgnum = 1;
 
-	captionText.innerHTML = "Retina - Image - " +imgnum;
+	//captionText.innerHTML = "Retina - Image - " +imgnum;
 	modalImg.src = "/assets/originals/" + imgnum + ".jpg";
     modal.style.display = "block";
 }
@@ -37,7 +38,7 @@ nxtimg.onclick = function() {
 	else
 		imgnum = 100;
 
-	captionText.innerHTML = "Retina - Image - " +imgnum;
+	//captionText.innerHTML = "Retina - Image - " +imgnum;
 	modalImg.src = "/assets/originals/" + imgnum + ".jpg";
 }
 
@@ -48,4 +49,5 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
 	document.getElementById("retina_retina_base_score").value = imgnum;
     modal.style.display = "none";
+		retinaform.submit();
 }

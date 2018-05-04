@@ -132,6 +132,7 @@ body {
   border-radius: 5px;
 }
 
+
 .previousbtn{
 	background-color: #155b74;
 	width: 130px;
@@ -155,6 +156,29 @@ body {
   text-decoration: none;
 }
 
+.previousbtnend{
+  background-color: #155b74;
+	width: 130px;
+	height: 50px;
+	//margin-top: 50px;
+	margin-left: 430px;
+  margin-bottom: 10px;
+	float: left;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  line-height: 3;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-family: sans-serif;
+}
+
+.previousbtnend:hover{
+  color: #FFF;
+  background-color: #6f1559;
+  text-decoration: none;
+}
 .nextbtn{
 	background-color: #155b74;
 	width: 130px;
