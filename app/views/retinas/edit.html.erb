@@ -1,0 +1,79 @@
+
+<div id="content">
+  <div class="editclinicalparamsform">
+
+
+<%= form_for @retina do |f| %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+ <%= @retina.errors.full_messages.to_sentence %>
+
+ <br>
+<center>
+    
+    <b><%= f.label :hba1c, "HbA1c", :class => 'lblcss' %></b><br>
+      <%= f.text_field :hba1c, placeholder: 'HbA1c', :class => 'txtcss', :value => @retina.hba1c %>
+
+      <br><b><%= f.label :lipid_profile, "Serum Cholesterol", :class => 'lblcss'  %></b><br>
+      <%= f.text_field :lipid_profile, 
+                       placeholder: 'Serum Cholesterol', 
+                       :class => 'txtcss', 
+                       :value => @retina.lipid_profile
+      %>
+
+      <br><b><%= f.label :kidney_renal, "Renal Involvement", :class => 'lblcss'  %></b><br>
+      <%= f.select( :kidney_renal, 
+                    options_for_select(
+                         [['No', 0], 
+                          ['Microalbumineuria', 1], 
+                          ['Creatinine > 1.6', 2], 
+                          ['Creatinine > 4', 3]],
+                          @retina.kidney_renal), # preselected during edit
+                       {:class => 'txtcss'}
+                   ) %>
+  <br>
+  <b><%= f.label :smoking, "Smoking", :class => 'lblcss'  %></b><br>
+  <%= f.select( :smoking,
+                options_for_select(
+                          [['No', 0],
+                           ['Yes', 1],
+                           ['Related lung disease', 2]],
+                          @retina.smoking), # preselected during edit
+                {:class => 'txtcss'}
+      ) %>
+  <br>
+  <b><%= f.label :diabetic_duration, "Duration", :class => 'lblcss'%> <br></b>
+  <%= f.select(:diabetic_duration,
+               options_for_select(
+                          [['5-10 Yrs', 4],
+                          ['11-15 Yrs', 3],
+                          ['16-20 Yrs', 2],
+                          ['>20 Yrs', 1]],
+                          @retina.diabetic_duration),  # preselected during edit
+               {:class => 'txtcss'}
+      ) %>
+  <br>
+  <b><%= f.label :cad_stroke, "History of Coronoary Artery Disease/ Stroke", :class => 'lblcss' %></b><br>
+  <%= f.select(:cad_stroke,
+               options_for_select(
+                   [['No', 0],
+                    ['Yes', 2]], @retina.cad_stroke),
+               {:class => 'txtcss'}
+      ) %>
+
+  <br>
+  <b>    <%= f.label :good_follow_up, "Good follow-up, once in three months", :class => 'lblcss' %></b><br>
+  <%= f.select(:good_follow_up,
+               options_for_select(
+                   [['No', 5],
+                    ['Yes', 0]],@retina.good_follow_up),
+               {:class => 'txtcss'}
+      ) %>
+  <br>
+</center>
+<br>
+        <%= f.submit 'Save', :class => 'nextbtn' %>
+<% end %>
+
+
+</div>
+</div>

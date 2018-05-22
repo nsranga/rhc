@@ -27,22 +27,28 @@ class RetinaStepsController < ApplicationController
 
       when :serum_cholesterol
     	retina_params = params.require(:retina).permit(:lipid_profile)
+      session[:lipid_profile] = params[:retina][:lipid_profile]
 
       when :kidney_renal
     	retina_params = params.require(:retina).permit(:kidney_renal, :kidney_micro_album, :kidney_creatinine)
+      session[:kidney_renal] = params[:retina][:kidney_renal]
 
       when :smoking
     	retina_params = params.require(:retina).permit(:smoking, 
     		                                           :smoking_related_lung_disease)
+      session[:smoking] = params[:retina][:smoking]
 
       when :diabetic_duration
     	retina_params = params.require(:retina).permit(:diabetic_duration)
+      session[:diabetic_duration] = params[:retina][:diabetic_duration]
 
       when :cad_stroke
     	retina_params = params.require(:retina).permit(:cad_stroke)
+      session[:cad_stroke] = params[:retina][:cad_stroke]
 
       when :good_follow_up
     	retina_params = params.require(:retina).permit(:good_follow_up)
+      session[:good_follow_up] = params[:retina][:good_follow_up]
 
       when :for_retina_display_yrs
       retina_params = params.require(:retina).permit(:no_of_years)
