@@ -158,8 +158,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div id="content">
 <%=  link_to 'Home', root_path, :class => 'previousbtnend' %>
     <center>
-<img src="" id="imgdemo1" width="45%" title="Current Retina Image" onMouseOver="final_displaymodal(<%= session[:retina_base_score] %>);">
-<img src="" id="imgdemo2" width="45%" title="Future Retina Image" onMouseOver="final_displaymodal(<%= @future_retina.to_i %>);"> <br><br></center>
+<img src="" id="imgdemo1" width="45%" title="Current Retina Image" onclick="final_displaymodal(<%= session[:retina_base_score] %>);">
+<img src="" id="imgdemo2" width="45%" title="Future Retina Image" onclick="final_displaymodal(<%= @future_retina.to_i %>);"> <br><br></center>
 
 
 </div>
