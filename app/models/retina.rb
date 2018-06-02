@@ -1,6 +1,8 @@
 class Retina < ApplicationRecord
-	# validates :hba1c, :lipid_profile, :kidney_creatinine, presence: true
 	#validates_inclusion_of :hba1c, :in => 1..10
+  validates :hba1c, :lipid_profile, presence: true
+  validates_inclusion_of :hba1c, :in => 1..30
+
     attr_accessor :no_of_years
     attr_accessor :retina_base_score 
 
