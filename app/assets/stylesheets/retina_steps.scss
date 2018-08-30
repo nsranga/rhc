@@ -201,6 +201,28 @@ body {
   text-decoration: none;
 }
 
+.nextbtnedit{
+	background-color: #155b74;
+	width: 130px;
+	height: 50px;
+  //margin-top: 50px;
+	margin-left: 180px;
+	float: left;
+  color: #FFF;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  letter-spacing: 5px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.nextbtnedit:hover{
+  color: #FFF;
+  background-color: #6f1559;
+  text-decoration: none;
+}
+
 #footer{
 	width: 1000px;
 	height: 50px;
@@ -233,6 +255,20 @@ body {
   background-position: 50% 100%;
   //  float: left;
 }
+
+.editclinicalparamsformedit {
+  //background: #eceeee;
+  background-color: rgba(9,47,78,.5);
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 470px;
+  margin: 20px 250px 0;
+  width: 498px;
+  color: #FFF;
+  background-position: 50% 100%;
+  //  float: left;
+}
+
 /*
 .footercontent{
   background-color: #f8f8f8;

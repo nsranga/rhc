@@ -1,21 +1,19 @@
 
 
 
+
 <head>
 <link rel="stylesheet" type="text/css" href="img_gallery_style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-
 #myImg {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
-
 #myImg:hover {opacity: 0.7;}
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -30,7 +28,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
     background-color: rgb(0,0,0); /* Fallback color */
     /*background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
-
 /* Modal Content (image) */
 .modal-content {
     margin: auto;
@@ -38,7 +35,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
     width: 80%;
     max-width: 700px;
 }
-
 /* Modal Content Previous Button */
 .img_prevbtn1{
   position: absolute;
@@ -52,14 +48,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-align: center;
   font-size:40px;
 }
-
 .img_prevbtn1:hover{
   color: #bbb;
   text-decoration: none;
    cursor: pointer;
 }
-
-
 /* Modal Content Next Button */
 .img_nextbtn1{
   position: absolute;
@@ -73,14 +66,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
    font-size:40px;
    text-align:center;
 }
-
 .img_nextbtn1:hover{
   color: #bbb;
   text-decoration: none;
    cursor: pointer;
 }
-
-
 /* Caption of Modal Image */
 #caption {
     margin: auto;
@@ -92,7 +82,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
     padding: 10px 0;
     height: 150px;
 }
-
 /* Add Animation */
 .modal-content, #caption {
     -webkit-animation-name: zoom;
@@ -100,17 +89,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
     animation-name: zoom;
     animation-duration: 0.6s;
 }
-
 @-webkit-keyframes zoom {
     from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
 }
-
 @keyframes zoom {
     from {transform:scale(0)}
     to {transform:scale(1)}
 }
-
 /* The Close Button */
 .close1 {
     position: absolute;
@@ -121,66 +107,42 @@ body {font-family: Arial, Helvetica, sans-serif;}
     font-weight: bold;
     transition: 0.3s;
 }
-
 .close1:hover,
 .close1:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
 }
-
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
-
 .myImg1{
 	border-radius: 5px;
     cursor: pointer;
 }
-
-
-
-
 </style>
 </head>
-
-
 <% @future_retina = session[:retina_base_score].to_i + (@retina.calculate_score * session[:no_of_years].to_i) %>
 <% @future_retina>100? @future_retina=100 : @future_retina; %>
 <!--
 <body  onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= @future_retina.to_i %>, <%= session[:no_of_years] %>);">
 -->
-
 <body onLoad="displaymodal1(<%= session[:retina_base_score] %>,<%= @future_retina.to_i %>, <%= session[:no_of_years] %>);">
-
     <div id="content">
 <%=  link_to 'Home', root_path, :class => 'previousbtnend' %>
-    <center>
-<img src="" id="imgdemo1" width="45%" title="Current Retina Image" onclick="final_displaymodal(<%= session[:retina_base_score] %>);">
-<img src="" id="imgdemo2" width="45%" title="Future Retina Image" onclick="final_displaymodal(<%= @future_retina.to_i %>);"> <br><br></center>
-
+<%=  link_to  'Update', edit_retina_path, :class => 'previousbtnend' %>
     <center>
 <img src="" id="imgdemo1" width="45%" title="Current Retina Image" onMouseClick="final_displaymodal(<%= session[:retina_base_score] %>);">
 <img src="" id="imgdemo2" width="45%" title="Future Retina Image" onMouseClick="final_displaymodal(<%= @future_retina.to_i %>);"> <br><br></center>
-
 </div>
-
-
-
-
-
-
 <!-- The Modal-->
 <div id="myModal" class="modal">
   <img class="modal-content" id="img01">
   <span class="close1">Close &times;</span>
   <div id="caption"></div>
 </div>
-
-
-
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -190,9 +152,7 @@ var modalImg2 = document.getElementById("imgdemo2");
 var imgnum=0;
 var imgnum2=0;
 var yrs=0;
-
 function displaymodal1(i1,j1,yr){
-
 	imgnum0=i1;
 	imgnum1=j1;
   yrs=yr;
@@ -204,7 +164,6 @@ function displaymodal1(i1,j1,yr){
   //modalImg2.title=imgnum1;
     //captionText.innerHTML = " CURRENT RETINA IMAGE ";
 }
-
 function final_displaymodal(i){
 	imgnum=i;
   modal.style.display = "block";
@@ -212,58 +171,31 @@ function final_displaymodal(i){
 	modalImg.src = "/assets/originals/" + i + ".jpg";
     //captionText.innerHTML = "Retina - Image - " +i;
 }
-
-
 /*
 var captionText = document.getElementById("caption");
-
-
 var previmg1 = document.getElementsByClassName("img_prevbtn1")[0];
-
 previmg1.onclick = function() {
 	captionText.innerHTML = " CURRENT RETINA IMAGE ";
 	modalImg.src = "/assets/originals/" + imgnum0 + ".jpg";
     modal.style.display = "block";
 }
-
 var nxtimg1 = document.getElementsByClassName("img_nextbtn1")[0];
-
 nxtimg1.onclick = function() {
 	captionText.innerHTML = "FUTURE RETINA IMAGE AFTER " + yrs + " YEARS " + ;
 	modalImg.src = "/assets/originals/" + imgnum1 + ".jpg";
 }
-
 // Get the <span> element that closes the modal
 //var span = document.getElementsByClassName("close")[0];
 */
-
 // When the user clicks on <span> (x), close the modal
 var closeimg = document.getElementsByClassName("close1")[0];
-
 closeimg.onclick = function() {
     modal.style.display = "none";
 }
-
 </script>
-
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--
 <br>
-
 <script>
 /*
 $("#pop").on("click", function() {
@@ -272,33 +204,20 @@ $("#pop").on("click", function() {
 });
 */
 </script>
-
 <a href="<%= root_path%>"> Home </a> <br>
-
 The Score for the below clinical data is: <%= @score = @retina.calculate_score %>
-
 <% @year_count=session[:no_of_years].to_i %>
 <br><br>
-
-
 <a href="#imagemodal" data-toggle="modal"> Click to see the Retina Images </a>
-
 <%= lightbox_tag(image_path("/assets/originals/1o_tn.jpg"),
               image_path("/assets/originals/" + (session[:retina_base_score]) + ".jpg"), title="New Image", collection=nil, html_options = {"width" => "450", "height" => "350"}) %>
-
 <br><br>
 Clinical parameters are:<br>
-
 <p>------------------------</p>
-
 <%= display_clinical_params(@retina) %>
-
 <a href="<%= new_retina_path %>">Click to enter new clinical data set </a>
-
 -->
-
 <!-- Creates the bootstrap modal where the image will appear -->
-
 <!--
 <div class="modal fade" id="imagemodal" role="dialog">
   <div class="modal-dialog">
@@ -320,12 +239,10 @@ Clinical parameters are:<br>
       </td>
       </tr>
       </table>
-
       </div>
       <div class="modal-footer">
         <h4> Disclaimer </h4>
         <button type="button" class="btn btn-default" data-dismiss="modal" data-target="#imagemodal">Close</button>
-
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 
 <div id="content">
-  <div class="editclinicalparamsform">
+  <div class="editclinicalparamsformedit">
 
 
 <%= form_for @retina do |f| %>
@@ -9,23 +9,23 @@
 
  <br>
 <center>
-    
+
     <b><%= f.label :hba1c, "HbA1c", :class => 'lblcss' %></b><br>
       <%= f.text_field :hba1c, placeholder: 'HbA1c', :class => 'txtcss', :value => @retina.hba1c %>
 
       <br><b><%= f.label :lipid_profile, "Serum Cholesterol", :class => 'lblcss'  %></b><br>
-      <%= f.text_field :lipid_profile, 
-                       placeholder: 'Serum Cholesterol', 
-                       :class => 'txtcss', 
+      <%= f.text_field :lipid_profile,
+                       placeholder: 'Serum Cholesterol',
+                       :class => 'txtcss',
                        :value => @retina.lipid_profile
       %>
 
       <br><b><%= f.label :kidney_renal, "Renal Involvement", :class => 'lblcss'  %></b><br>
-      <%= f.select( :kidney_renal, 
+      <%= f.select( :kidney_renal,
                     options_for_select(
-                         [['No', 0], 
-                          ['Microalbumineuria', 1], 
-                          ['Creatinine > 1.6', 2], 
+                         [['No', 0],
+                          ['Microalbumineuria', 1],
+                          ['Creatinine > 1.6', 2],
                           ['Creatinine > 4', 3]],
                           @retina.kidney_renal), # preselected during edit
                        {:class => 'txtcss'}
@@ -71,7 +71,7 @@
   <br>
 </center>
 <br>
-        <%= f.submit 'Save', :class => 'nextbtn' %>
+        <%= f.submit 'Save', :class => 'nextbtnedit' %>
 <% end %>
 
 

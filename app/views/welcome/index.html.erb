@@ -9,7 +9,7 @@ body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,3
   background-color: rgba(9,47,78,.5);
   border: 1px solid #42464b;
   border-radius: 6px;
-  height: 187px;
+  height: 237px;
   margin: 20px auto 0;
   width: 298px;
 }
@@ -82,7 +82,7 @@ input[type="checkbox"]:checked + .toggle { background-position: 0 -16px }
   transition: color .4s;
 }
 .forgot:hover { color: #3b3b3b }
-input[type="submit"] {
+input[type="button"] {
   width:240px;
   height:35px;
   display:block;
@@ -119,7 +119,7 @@ input[type="submit"] {
 }
 
 
-input[type="submit"]:active {
+input[type="button"]:active {
   top:3px;
   box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
 }
@@ -127,26 +127,42 @@ input[type="submit"]:active {
 
 </style>
 
+<script>
+  function fun_login() {
+    var uname = document.getElementById("username").value;
+    var pwd = document.getElementById("password").value;
+
+    if((uname=="admin") && (pwd=="admin")) {
+      //window.alert("welcome to alert..");
+      window.location.assign("http://localhost:3000/retinas/new");
+    }
+    else {
+      window.alert("Wrong Username or Password...");
+    }
+  }
+</script>
+
 <div id="content">
 
-<!--
+
 <div class="home_login">
 
-  <input type="text" placeholder="Enter Your Name" id="username">
+  <input type="text" placeholder="Enter User Name" id="username">
 
-  <input type="password" placeholder="password" id="password">
--->
-<!--
-  <input type="submit" value="Sign In">
+  <input type="password" placeholder="Password" id="password">
+
+
+  <input type="button" value="Sign In" onclick="fun_login();">
 
 </div>
--->
+
 <div class="shadow"></div>
 
 
-
+<!--
 <center>
 
 <a href="<%= new_retina_path %>"> CLICK HERE </a> to enter the clinical parameters of the patient
 </center>
+-->
 </div>
